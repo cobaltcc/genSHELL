@@ -1,6 +1,6 @@
-function genSHELL()
+function genSHELL(R,H)
 cd mfiles
-importDataFile();
+importDataFile(R,H);
 
 errorNumber=checkImport();
 
@@ -20,7 +20,7 @@ createDIRECTIONS();         %done
 
 createCOORDINATES();        %almost done
 
-createMATERI();             %only need to make parameters variable
+createMATERI2();             %only need to make parameters variable
 
 createGEOMET();             %dont need to be changed
 

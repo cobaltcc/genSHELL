@@ -8,6 +8,8 @@
 *.log
 *.ps
 *.txt
+*.dat
+*.back
 *.xlsx
 Model\ 001
 Output

@@ -51,20 +51,20 @@ string2 = strcat(string2,' / TR 3 TR 2 TR 1');
 disp(string2);
 
 
-disp(sprintf('NAME FIXSEGMENTZ'));
-[currentNODE] = searchNODE('r',shaftRadius-1,shaftRadius+1);
-[row, col] = size(currentNODE);
-loopSize = row;
-string2='/';
-for i = 1:loopSize
-    if rem(i,10) ~= 0
-        string2 = sprintf('%s %i',string2,currentNODE(i));
-    else
-        string2 = sprintf('%s %i\n',string2,currentNODE(i));
-    end
-end
-string2 = strcat(string2,' / TR 3');
-disp(string2);
+% disp(sprintf('NAME FIXSEGMENTZ'));
+% [currentNODE] = searchNODE('r',shaftRadius-1,shaftRadius+1);
+% [row, col] = size(currentNODE);
+% loopSize = row;
+% string2='/';
+% for i = 1:loopSize
+%     if rem(i,10) ~= 0
+%         string2 = sprintf('%s %i',string2,currentNODE(i));
+%     else
+%         string2 = sprintf('%s %i\n',string2,currentNODE(i));
+%     end
+% end
+% string2 = strcat(string2,' / TR 3');
+% disp(string2);
 
 
 
@@ -82,5 +82,5 @@ for i = 1:loopSize
         string2 = sprintf('%s %i\n',string2,currentNODE(i));
     end
 end
-string2 = strcat(string2,' / TR 3');
+string2 = strcat(string2,' / TR 3 TR 2 TR 1');
 disp(string2);

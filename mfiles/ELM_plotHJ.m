@@ -1,10 +1,11 @@
 function [HJ_XYZ1,HJ_XYZ2]=ELM_plotHJ(R,H,L,ringN,Gap,N,A_l,GAMMA,color_HJ)
-  for k = 1:ringN-1
+HJ_XYZ1=[];
+HJ_XYZ2=[];
+for k = 1:ringN-1
        
  hold on
  axis equal
-HJ_XYZ1=[];
-HJ_XYZ2=[];
+
  
  if rem(k,2) ~= 0
      [X1,Y1]=genCircleNode(R,N,0);
