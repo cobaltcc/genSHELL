@@ -50,8 +50,8 @@ end
 ELEMENT = [TOP_R, TOP_L, BTM_L, BTM_R]; 
 
      
- hold on
- axis equal
+ %hold on
+ %axis equal
  
  for i = 1:size(ELEMENT,1)
      TOP_R= ELEMENT(i,1);
@@ -59,7 +59,7 @@ ELEMENT = [TOP_R, TOP_L, BTM_L, BTM_R];
      BTM_L= ELEMENT(i,3);
      BTM_R= ELEMENT(i,4);
      SPRING_CORNERS=[NODE(TOP_R,[2,3,4]);NODE(TOP_L,[2,3,4]) ;NODE(BTM_L,[2,3,4]) ;NODE(BTM_R,[2,3,4])];
-     fill3(SPRING_CORNERS(:,1),SPRING_CORNERS(:,2),SPRING_CORNERS(:,3),color_SPR)
+     %fill3(SPRING_CORNERS(:,1),SPRING_CORNERS(:,2),SPRING_CORNERS(:,3),color_SPR)
  end
  
 

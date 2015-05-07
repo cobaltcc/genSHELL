@@ -6,7 +6,7 @@
   BEGIN EXECUT
     BEGIN LOAD
       LOADNR 1
-      STEPS EXPLIC SIZES 1 (40)
+      STEPS EXPLIC SIZES 1 (1)
     END LOAD
     BEGIN ITERAT
       MAXITE 30
@@ -24,6 +24,12 @@
     TEXT "Output"
     ASCII
     FILE "output.dat"
-    SELECT STEPS ALL /
+    BEGIN SELECT
+      BEGIN STEPS ALL /
+        MIN
+        MAX
+      END STEPS
+    END SELECT
+    DISPLA TOTAL TRANSL GLOBAL X Y Z
   END OUTPUT
 *END

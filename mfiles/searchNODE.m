@@ -1,11 +1,7 @@
-function foundNODES = searchNODE(par, min, max)
-
-load NODES
+function foundNODES = searchNODE(NODES,par, min, max)
 
 
-
-if par == 'Z' || par == 'z'
-
+if (par == 'Z' || par == 'z')
 
     foundNODES =[];
     tol = 1e-5;

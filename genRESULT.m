@@ -17,7 +17,7 @@ while ischar(tline)
     if strcmp(tline, SEARCH_TERM)
         if strcmp(SEARCH_TERM,'Total Displacements')
             loadStep = loadStep+1;
-            disp('Disp found')
+%             disp('Disp found')
             SEARCH_TERM='Output';
             tline = fgetl(fid);
             continue

@@ -13,7 +13,7 @@ function createLOAD()
 load inputDataFile;
 
 
-RADIUS_HIG=shaftRadius++1;
+RADIUS_HIG=shaftRadius+1;
 R=RADIUS_HIG;
 RADIUS_LOW=shaftRadius+-1;
 
@@ -24,9 +24,16 @@ disp(sprintf('ELEMEN'));
 [currentELEM] = searchELEM(1);
 [row, col] = size(currentELEM);
 [elemX, elemY, elemZ]=getElementXYZ(currentELEM);
-newelemZ=18+(abs(round(elemZ-2.5)/5))*16;
-loadXYZ=newelemZ.*(1+0.5*sqrt(R*R-elemX.*elemX)/R);
+% newelemZ=18+(abs(round(elemZ-2.5)/5))*16;
+X1 = abs(max(elemZ));
+Y1 = 0.125;
+X2 = abs(min(elemZ));
+Y2 = 1;
+M = (Y2-Y1)/(X2-X1);
+newelemZ = -M*(elemZ-X1);
 
+loadXYZ = newelemZ.*(1+0.5*sqrt(R*R-elemX.*elemX)/R);
+%loadXYZ = loadXYZ/12*R*0.0455-1.84;
 L1=loadXYZ;
 L2=loadXYZ;
 L3=loadXYZ;
@@ -39,7 +46,7 @@ loopSize = row;
 for i = 1:loopSize
 disp(sprintf('  %i   FACE',currentELEM(i)));
 % disp(sprintf('      FORCE %i',loadXYZ(i)));
-disp(sprintf('      FORCE %i %i %i %i %i %i %i %i',L1(i),L2(i),L3(i),L4(i),L5(i),L6(i),L7(i),L8(i)));
+disp(sprintf('      FORCE %i  %i  %i  %i',L1(i),L1(i),L1(i),L1(i)));
 disp(sprintf('      DIRELM Z'));
 
 

@@ -1,0 +1,1 @@
+size(BOT,1)/ringN

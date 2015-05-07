@@ -11,6 +11,7 @@
 *.dat
 *.back
 *.xlsx
+results
 Model\ 001
 Output
 qifu

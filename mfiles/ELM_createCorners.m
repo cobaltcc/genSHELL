@@ -1,11 +1,11 @@
-function [CORNERS]=createCorners(R,L,H,GAMMA,CP)
+function [CORNERS]=createCorners(R,L_CURVED,H,GAMMA,CP,A_l)
     CX=CP(1);
     CY=CP(2);
     CZ=CP(3);
     
 
-    
-    
+    L_DIFF = L_CURVED-2*sin(L_CURVED/2/R)*R;
+    L =  L_CURVED + 2*L_DIFF;
     %gamma converting
     SMALL_L = tan(deg2rad(GAMMA))*H;
     

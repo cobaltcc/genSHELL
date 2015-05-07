@@ -3,8 +3,8 @@ HJ_XYZ1=[];
 HJ_XYZ2=[];
 for k = 1:ringN-1
        
- hold on
- axis equal
+ %hold on
+ %axis equal
 
  
  if rem(k,2) ~= 0
@@ -46,8 +46,8 @@ for k = 1:ringN-1
      HJ_XYZ1=[HJ_XYZ1;E1_CORNERS];
      HJ_XYZ2=[HJ_XYZ2;E2_CORNERS];
      
-    fill3(E1_CORNERS(:,1),E1_CORNERS(:,2),E1_CORNERS(:,3),color_HJ)
-    fill3(E2_CORNERS(:,1),E2_CORNERS(:,2),E2_CORNERS(:,3),color_HJ)
+    %fill3(E1_CORNERS(:,1),E1_CORNERS(:,2),E1_CORNERS(:,3),color_HJ)
+    %fill3(E2_CORNERS(:,1),E2_CORNERS(:,2),E2_CORNERS(:,3),color_HJ)
  end
      
      
@@ -92,8 +92,8 @@ for k = 1:ringN-1
      HJ_XYZ1=[HJ_XYZ1;E1_CORNERS];
      HJ_XYZ2=[HJ_XYZ2;E2_CORNERS];
      
-    fill3(E1_CORNERS(:,1),E1_CORNERS(:,2),E1_CORNERS(:,3),color_HJ)
-    fill3(E2_CORNERS(:,1),E2_CORNERS(:,2),E2_CORNERS(:,3),color_HJ)
+    %fill3(E1_CORNERS(:,1),E1_CORNERS(:,2),E1_CORNERS(:,3),color_HJ)
+    %fill3(E2_CORNERS(:,1),E2_CORNERS(:,2),E2_CORNERS(:,3),color_HJ)
  end
      
  end

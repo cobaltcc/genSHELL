@@ -1,7 +1,7 @@
 function createSUPPOR()
 
 load inputDataFile;
-
+load NODES;
 %CREATESUPPOR Summary of this function goes here
 %   Detailed explanation goes here
 % 'SUPPOR'
@@ -26,17 +26,17 @@ load inputDataFile;
 % 3961 3952 3960-3958(-1) 3955 3966 3964 3967 3972 3973 3971-3968(-1) 4223-4239
 % 196497 196505 196496 196504-196501(-1) 196767-196787 196789 196791-196805 196809
 % 196810-196822(2) / TR 3
-SPRING_RADIUS_HIG=shaftRadius+springToWall+1;
-SPRING_RADIUS_LOW=shaftRadius+springToWall-1;
+SPRING_RADIUS_HIG=shaftRadius+springToWall+12;
+SPRING_RADIUS_LOW=shaftRadius+springToWall-12;
 
 ringN=shaftDepth/segmentHeight;
-FIXBOTTOM_LOW=(ringN-1)*(-segmentHeight-segmentGap/12)-segmentHeight/2-1;
-FIXBOTTOM_HIG=(ringN-1)*(-segmentHeight-segmentGap/12)-segmentHeight/2+1;
+FIXBOTTOM_LOW=(ringN)*(-segmentHeight-segmentGap/12)-segmentHeight/2-12;
+FIXBOTTOM_HIG=(ringN)*(-segmentHeight-segmentGap/12)-segmentHeight/2+12;
 
 disp(sprintf('''SUPPOR'''));
 
 disp(sprintf('NAME FIXSPRING'));
-[currentNODE] = searchNODE('r',SPRING_RADIUS_LOW,SPRING_RADIUS_HIG);
+[currentNODE] = searchNODE(NODES,'r',SPRING_RADIUS_LOW,SPRING_RADIUS_HIG);
 [row, col] = size(currentNODE);
 loopSize = row;
 string2='/';
@@ -50,9 +50,9 @@ end
 string2 = strcat(string2,' / TR 3 TR 2 TR 1');
 disp(string2);
 
-
+% 
 % disp(sprintf('NAME FIXSEGMENTZ'));
-% [currentNODE] = searchNODE('r',shaftRadius-1,shaftRadius+1);
+% [currentNODE] = searchNODE('r',shaftRadius-12,shaftRadius+12);
 % [row, col] = size(currentNODE);
 % loopSize = row;
 % string2='/';
@@ -71,7 +71,8 @@ disp(string2);
 
 
 disp(sprintf('NAME BOTTOMNODES'));
-[currentNODE] = searchNODE('z',FIXBOTTOM_LOW,FIXBOTTOM_HIG);
+[currentNODE] = searchNODE(NODES,'z',FIXBOTTOM_LOW,FIXBOTTOM_HIG);
+[currentNODE] = searchNODE(NODES([currentNODE'],:),'r',shaftRadius-12,shaftRadius+12);
 [row, col] = size(currentNODE);
 loopSize = row;
 string2='/';
@@ -84,3 +85,4 @@ for i = 1:loopSize
 end
 string2 = strcat(string2,' / TR 3 TR 2 TR 1');
 disp(string2);
+DEBUG=1;

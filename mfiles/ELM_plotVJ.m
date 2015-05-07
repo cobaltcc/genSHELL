@@ -5,8 +5,8 @@ VJ_XYZ=[];
 for k = 1:ringN
 
      
- hold on
- axis equal
+ %hold on
+ %axis equal
 
  if rem(k,2) ~= 0
      [X,Y]=genCircleNode(R,N,0);
@@ -34,7 +34,7 @@ for k = 1:ringN
      
      NEW_CORNERS = [TOP_R;TOP_L;BTM_L;BTM_R];
      VJ_XYZ=[VJ_XYZ;NEW_CORNERS];
-     fill3(NEW_CORNERS(:,1),NEW_CORNERS(:,2),NEW_CORNERS(:,3),color_VJ)
+     %fill3(NEW_CORNERS(:,1),NEW_CORNERS(:,2),NEW_CORNERS(:,3),color_VJ)
     
  end
 end

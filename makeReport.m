@@ -1,6 +1,7 @@
 tic
 clear
 clc
+OUT=[];
 
 PWD=pwd;
 RESULT='results';
@@ -12,15 +13,23 @@ else
     mkdir(sprintf('%s',CONC));
 end
 MAX_DISP=[];
-FOLDERS=ls('results');
+FOLDERS=ls(RESULT);
 FOLDERS=FOLDERS([3:end],:);
 SIZE_FOLDERS=size(FOLDERS,1);
 I=1;
 
-for i=1:2 
+for i=1:SIZE_FOLDERS 
         FILE=sprintf('%s\\%s\\output.dat.dna',RESULT,strtrim(FOLDERS(i,:)));
         disp(strcat(num2str(i),'::',FILE))
-        OUT_RESULT=genRESULT(FILE)
-
+        try
+            OUT_RESULT=genRESULT(FILE)
+%           OUT_RESULT=[ 1 1 1];
+            OUT=[OUT ; OUT_RESULT];
+        catch
+            OUT=[OUT ; [0,0,0] ];
+        end
 end
+
+save OUT
+
 toc
