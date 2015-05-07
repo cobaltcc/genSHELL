@@ -10,7 +10,6 @@ function createLOAD()
 %      FORCE  -1.00000E+000 -1.00023E+000 -1.00094E+000 -1.00094E+000 
 %             -1.00094E+000 -1.00023E+000 -1.00000E+000 -1.00000E+000
 %      DIRELM NORMAL
-
 load inputDataFile;
 
 
@@ -25,16 +24,17 @@ disp(sprintf('ELEMEN'));
 [currentELEM] = searchELEM(1);
 [row, col] = size(currentELEM);
 [elemX, elemY, elemZ]=getElementXYZ(currentELEM);
-loadXYZ=((abs(floor(elemZ/5))+1).*(1+0.5*sqrt(R*R-elemX.*elemX)/R));
-MULTI=55/5.5;
-L1=MULTI*(loadXYZ/8);
-L2=MULTI*(loadXYZ/8);
-L3=MULTI*(loadXYZ/8);
-L4=MULTI*(1/16+loadXYZ/8);
-L5=MULTI*(1/8+loadXYZ/8);
-L6=MULTI*(1/8+loadXYZ/8);
-L7=MULTI*(1/8+loadXYZ/8);
-L8=MULTI*(1/16+loadXYZ/8);
+newelemZ=18+(abs(round(elemZ-2.5)/5))*16;
+loadXYZ=newelemZ.*(1+0.5*sqrt(R*R-elemX.*elemX)/R);
+
+L1=loadXYZ;
+L2=loadXYZ;
+L3=loadXYZ;
+L4=loadXYZ+7;
+L5=loadXYZ+14;
+L6=loadXYZ+14;
+L7=loadXYZ+14;
+L8=loadXYZ+7;
 loopSize = row;
 for i = 1:loopSize
 disp(sprintf('  %i   FACE',currentELEM(i)));

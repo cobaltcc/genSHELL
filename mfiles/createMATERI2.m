@@ -6,7 +6,7 @@ load inputDataFile.mat
 disp(sprintf('''MATERI'''));
 disp(sprintf('   1 NAME   "Concrete"'));
 disp(sprintf('     YOUNG   %3.4E',7.20000E+08));
-disp(sprintf('     POISON  %3.4E',2.00000E-01));
+disp(sprintf('     POISON  %3.4E',2.50000E-01));
 %disp(sprintf('     DENSIT  %3.4E',propConcreteDensi));
 disp(sprintf('   2 NAME   "SoilIF"'));
 disp(sprintf('     DSTIF   1.38240E+05   1.72800E+03'));
@@ -24,7 +24,7 @@ disp(sprintf('   3 NAME   "JointIF"'));
 disp(sprintf('     DSTIF   3.97440E+08   1.58976E+08'));
 disp(sprintf('     SIGDIS -1.44000E+18  -8.33433E+01  -3.97440E+06  -1.00000E-02'));
 disp(sprintf('             0.00000E+00   0.00000E+00   6.55200E+06   8.33333E+01'));
-disp(sprintf('     SIGDI2  -8.64000E+03  -8.33333E+04  -7.93440E+03  -4.16925E-02'));
+disp(sprintf('     TAUDIS  -8.64000E+03  -8.33333E+04  -7.93440E+03  -4.16925E-02'));
 disp(sprintf('             -3.97440E+03  -2.58333E-05   0.00000E+00   0.00000E+00'));
 disp(sprintf('             3.97440E+03   2.58333E-05   7.93440E+03   4.16925E-02'));
 disp(sprintf('             8.64000E+03   8.33333E+04'));

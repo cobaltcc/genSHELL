@@ -6,7 +6,7 @@
   BEGIN EXECUT
     BEGIN LOAD
       LOADNR 1
-      STEPS EXPLIC
+      STEPS EXPLIC SIZES 1 (40)
     END LOAD
     BEGIN ITERAT
       MAXITE 30
@@ -22,8 +22,8 @@
   SOLVE PARDIS
   BEGIN OUTPUT NDIANA
     TEXT "Output"
-    BINARY
-    FILE "aaa"
+    ASCII
+    FILE "output.dat"
     SELECT STEPS ALL /
   END OUTPUT
 *END

@@ -1,11 +1,11 @@
-function importDataFile()
+function importDataFile(R,H)
 
 [inputShaftNum,inputShaftText] = xlsread('../Inputs/input.xlsx','shaft');
 [inputPropNum,inputPropText] = xlsread('../Inputs/input.xlsx','Prop');
 caseNumber = inputShaftNum(1);
 modelNumber = inputShaftNum(2);
-shaftRadius = inputShaftNum(3);
-shaftDepth = inputShaftNum(4);
+shaftRadius = R;
+shaftDepth = H;
 segmentGap = inputShaftNum(5);
 segmentLength = inputShaftNum(6);
 segmentAngle = inputShaftNum(7);

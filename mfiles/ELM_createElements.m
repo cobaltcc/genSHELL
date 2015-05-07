@@ -16,140 +16,15 @@ color_HJ = colors(4);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Create Segments
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[NODE1, ELEMENT1]=ELM_plotSegment(R,H,L,ringN,Gap,N,A_l,GAMMA,color_SEG);
+[SEGMENT_NODE, SEGMENT_ELEM]=ELM_plotSegment(R,H,L,ringN,Gap,N,A_l,GAMMA,color_SEG);
 %NODES1=[]; ELEMENTS1=[]; TYPES1=[];
-[NODE1P,ELEMENT1P]=FourToEightConvertor(NODE1,ELEMENT1);
-
+[NODE1P,ELEMENT1P]=SegmentToElement(SEGMENT_NODE,SEGMENT_ELEM,R,4,10);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Create Spring using element Q24IF
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-NODE2=[];
-
-[X,Y]=genCircleNode(R,N,0);
-[X_OUT,Y_OUT]=genCircleNode(R+springToWall,N,0);
-
-nodeNumber = size(NODE1P,1)+(1:N);
-
-TOP_R_OUT=[];
-TOP_L_OUT=[];
-BTM_L_OUT=[];
-BTM_R_OUT=[];
-
-%% INNER
-% for k = 0:ringN
-%     Z = (k*(-H-Gap/12)+H/2+Gap/24)*ones(1,size(X,2));
-%     %NODE = [NODE; X' , Y' ,Z'];
-%     NODE2 = [NODE2; (nodeNumber+N*k)', X' , Y' ,Z'];
-% end
-% 
-% for j = 1:ringN
-%     for i = 1:size(X,2)
-%         TOP_R=[TOP_R;i+(j-1)*size(X,2)];
-%     end
-% end
-% 
-% for j = 1:ringN
-%     for i = 1:size(X,2)-1
-%         TOP_L=[TOP_L;i+1+(j-1)*size(X,2)];
-%     end
-%     TOP_L=[TOP_L;1+(j-1)*size(X,2)];
-% end
-% 
-% for j = 1:ringN
-%     for i = 1:size(X,2)-1
-%         BTM_L=[BTM_L;i+size(X,2)+1+(j-1)*size(X,2)];
-%     end
-%     BTM_L=[BTM_L;size(X,2)+1+(j-1)*size(X,2)];
-% end
-% 
-% for j = 1:ringN
-%     for i = 1:size(X,2)
-%         BTM_R=[BTM_R;i+size(X,2)+(j-1)*size(X,2)];
-%     end
-% end
-
-%% OUTER
-
-for k = 0:ringN
-    Z = (k*(-H-Gap/12)+H/2+Gap/24)*ones(1,size(X,2));
-    %NODE = [NODE; X' , Y' ,Z'];
-    NODE2 = [NODE2; (nodeNumber+N*k)', X_OUT' , Y_OUT' ,Z'];
-end
-
-for j = 1:ringN
-    for i = 1:size(X,2)
-        TOP_R_OUT=[TOP_R_OUT;i+(j-1)*size(X_OUT,2)];
-    end
-end
-
-for j = 1:ringN
-    for i = 1:size(X_OUT,2)-1
-        TOP_L_OUT=[TOP_L_OUT;i+1+(j-1)*size(X_OUT,2)];
-    end
-    TOP_L_OUT=[TOP_L_OUT;1+(j-1)*size(X_OUT,2)];
-end
-
-for j = 1:ringN
-    for i = 1:size(X,2)-1
-        BTM_L_OUT=[BTM_L_OUT;i+size(X_OUT,2)+1+(j-1)*size(X_OUT,2)];
-    end
-    BTM_L_OUT=[BTM_L_OUT;size(X_OUT,2)+1+(j-1)*size(X_OUT,2)];
-end
-
-for j = 1:ringN
-    for i = 1:size(X,2)
-        BTM_R_OUT=[BTM_R_OUT;i+size(X_OUT,2)+(j-1)*size(X_OUT,2)];
-    end
-end
-
-
-%% ASSEMBLE Q24IF
 
 [NODE2,ELEMENT2P]=translateNODE1(NODE1P,ELEMENT1P);
-
-
-% ELEMENT1P_EXTRACT= ELEMENT1P(:, [3:end]);
-% 
-% ELEMENT2_TEMP = [TOP_R_OUT, TOP_L_OUT, BTM_L_OUT, BTM_R_OUT]+size(NODE1P,1);
-% [NODE2,ELEMENT2P_TEMP]=FourToEightConvertor2(NODE2,ELEMENT2_TEMP);
-% 
-% 
-% I_E2P= size(ELEMENT1P,1)+(1:size(ELEMENT2P_TEMP,1))';
-% TYPE_E2P=2*ones(size(ELEMENT2P_TEMP,1),1);
-% ELEMENT2P=[I_E2P, TYPE_E2P, ELEMENT1P_EXTRACT ELEMENT2P_TEMP];
-
-% hold on
-% axis equal
-% 
-% for i = 1:size(ELEMENT,1)
-%     TOP_R= ELEMENT(i,1);
-%     TOP_L= ELEMENT(i,2);
-%     BTM_L= ELEMENT(i,3);
-%     BTM_R= ELEMENT(i,4);
-%     SPRING_CORNERS=[NODE(TOP_R,[2,3,4]);NODE(TOP_L,[2,3,4]) ;NODE(BTM_L,[2,3,4]) ;NODE(BTM_R,[2,3,4])];
-%     fill3(SPRING_CORNERS(:,1),SPRING_CORNERS(:,2),SPRING_CORNERS(:,3),color_SPR)
-% end
- 
-
-
-
-% [L,N2,A_l,A_g]=getLNA(R+springR,0,L0);
-% 
-%  for k = 1:ringN
-
-%  if rem(k,2) ~= 0
-%      [X,Y]=genCircleNode(R+springR,N,0);
-%  else
-%      [X,Y]=genCircleNode(R+springR,N,A_l/2);
-%  end
-%  
-%  plot3(X,Y,(k-1)*(-H-Gap/12)*ones(size(X,1),size(X,2)),'*k')
-%  
-
-%  end
-
-
-
+L=1;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
