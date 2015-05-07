@@ -34,7 +34,7 @@ newelemZ = -M*(elemZ-X1);
 
 loadXYZ = newelemZ.*(1+0.5*sqrt(R*R-elemX.*elemX)/R);
 %loadXYZ = loadXYZ/12*R*0.0455-1.84;
-L1=loadXYZ;
+L1=-loadXYZ;
 L2=loadXYZ;
 L3=loadXYZ;
 L4=loadXYZ+7;

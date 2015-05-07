@@ -11,7 +11,7 @@ else
     mkdir(sprintf('%s',RESULT));
 end
 R_RANGE=(60:10:150)*12;
-H_RANGE=(40:10:40)*12;
+H_RANGE=(50:10:80)*12;
 RH_SIZE=size(R_RANGE,2)*size(H_RANGE,2);
 OUTPUT_GENSHELL=strcat(PWD,'\Output\main.dat');
 

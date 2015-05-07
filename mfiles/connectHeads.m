@@ -67,6 +67,6 @@ function OUT = connect(BOT,TOP)
     OUT=[];
     bSIZE = size(BOT,2);
     for i = 1:(bSIZE-1)
-        OUT=[OUT; BOT(i) BOT(i+1) TOP(i) TOP(i+1)]; 
+        OUT=[OUT; BOT(i+1) BOT(i) TOP(i+1) TOP(i)];     
     end
 end

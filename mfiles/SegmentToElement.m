@@ -146,7 +146,7 @@ ELEM=[];
 
 for i=1:size(REFERENCE_NODES,2)
     N=REFERENCE_NODES(i);
-    ELEM=[ELEM;i 1 1  N N+1 COL+N+2 COL+N+1];
+    ELEM=[ELEM;i 1 1 COL+N+1 COL+N+2 N+1 N];  
 end
 
 end
