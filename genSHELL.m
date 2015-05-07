@@ -1,6 +1,6 @@
 function genSHELL(R,H)
 cd mfiles
-importDataFile(R,H);
+importDataFile();
 
 errorNumber=checkImport();
 
