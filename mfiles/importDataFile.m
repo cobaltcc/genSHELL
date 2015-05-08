@@ -1,7 +1,7 @@
 function importDataFile(R,H)
 
-[inputShaftNum,inputShaftText] = xlsread('../Inputs/input.xlsx','shaft');
-[inputPropNum,inputPropText] = xlsread('../Inputs/input.xlsx','Prop');
+[inputShaftNum,inputShaftText] = xlsread('../Inputs/input.xls','Shaft');
+[inputPropNum,inputPropText] = xlsread('../Inputs/input.xls','Prop');
 caseNumber = inputShaftNum(1);
 modelNumber = inputShaftNum(2);
 shaftRadius = R;
