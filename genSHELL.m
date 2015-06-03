@@ -1,4 +1,5 @@
 function genSHELL(R,H)
+clear all
 cd mfiles
 importDataFile(R,H);
 
