@@ -38,6 +38,7 @@ createLOAD();               %not started
 
 createSUPPOR();             %not started
 
+createTRANC();
 
 disp(sprintf('''END'''));
 diary off
