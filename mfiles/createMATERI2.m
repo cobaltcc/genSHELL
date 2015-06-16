@@ -5,6 +5,7 @@ load inputDataFile.mat
 
 disp(sprintf('''MATERI'''));
 disp(sprintf('   1 NAME   "Concrete"'));
+disp(sprintf('     DENSIT   8.67055E-02'));
 disp(sprintf('     YOUNG   5.00000E+006'));
 disp(sprintf('     POISON  2.00000E-001'));
 disp(sprintf('   2 NAME   "SoilIF"'));
