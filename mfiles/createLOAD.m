@@ -59,4 +59,10 @@ end
 %string2 = strcat(string2,' / TR 3');
 %disp(string2);
 
+disp(sprintf('CASE 31'));
+disp(sprintf('NAME "ExcitationX"'));
+disp(sprintf('BASE'));
+disp(sprintf('   1   3.93701E+01'));
+
+
 end
